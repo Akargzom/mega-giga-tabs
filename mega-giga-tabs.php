@@ -8,7 +8,7 @@
  * @wordpress-plugin
  * Plugin Name:       Mega-giga-tabs
  * Description:       Making your tabs mega-giga
- * Version:           1.0.004a
+ * Version:           1.1.001a
  * Requires PHP:      5.6
  * Author:            Sashko
  */
@@ -155,9 +155,9 @@ function add_sc()
                     $html .= "<p>" . $fields['tex'][$i] . "</p>";
                 $html .= "</div>
                     </div>
-                    <div class='tab-cont-inner";
+                    <div class='tab-cont";
                 if ($i == 0) $html .= ' show';
-                $html .= "'>" . $fields['ttc'][$i] . "</div></div>";
+                $html .= "'><div class='tab-cont-inner'>" . $fields['ttc'][$i] . "</div></div></div>";
             }
             $html .= "</div></div>";
             return $html;
@@ -179,9 +179,9 @@ function add_sc()
                     $html .= "<p>" . $fields['tex'][$i] . "</p>";
                 $html .= "</div>
                     </div>
-                    <div class='tab-cont-inner";
+                    <div class='tab-cont";
                 if ($i == 0) $html .= ' show';
-                $html .= "'>" . $fields['ttc'][$i] . "</div></div>";
+                $html .= "'><div class='tab-cont-inner'>" . $fields['ttc'][$i] . "</div></div></div>";
             }
             $html .= "</div></div>";
             return $html;
