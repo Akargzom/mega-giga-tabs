@@ -167,6 +167,64 @@ img:only-child{
     opacity: 1;
 }
 
+@media(max-width: 1279px) {
+
+    .active {
+        box-shadow: 0px 5px 30px -8px rgba(0, 0, 0, 0.18), inset 0px 10px 0px #3DBEEE !important;
+    }
+
+    .active:hover {
+        box-shadow: 0px 5px 30px -8px rgba(0, 0, 0, 0.18), inset 0px 10px 0px #3DBEEE !important;
+    }
+
+    .shadow{
+        box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.25) !important;
+        border-radius:0.6em;
+        display: block;
+        padding: 1.45em;
+        position: relative;
+        z-index: 2;
+    }
+
+    .text {
+        width: 100%;
+    }
+
+    .text>p{
+        font-size: 1.15em;
+        margin-top: .6em !important;
+    }
+
+    .text>h2{
+        margin-top: .6em !important;
+        font-size: 1.45em;
+        margin-bottom: 0% !important;
+    }
+
+    .tab-cont {
+        width: 100% !important;
+        display: none;
+        position: static !important;
+        border-radius: 0.6em;
+        padding: 1.45em !important;
+        color: black !important;
+        box-shadow: none !important;
+    }
+
+    .tab {
+        margin-bottom: 1.45em !important;
+        width: 100% !important;
+    }
+
+    .tabs-h{
+        display: block;
+    }
+
+    .tabs-h>.tab-h:not(:first-child){
+        margin-left: 0% !important;
+    }
+}
+
 @media(max-width: 1023px) {
 
     .active {
