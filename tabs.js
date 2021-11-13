@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
     window.addEventListener('resize', function () {
-        if (window.matchMedia("(min-width: 1024px)").matches) {
+        if (window.matchMedia("(min-width: 1280px)").matches) {
             for (let i = 0; i < tabContent.length; i++) {
                 if (tabContent[i].classList.contains('show')) {
                     let bigTab = tabContent[i].parentNode.parentNode.parentNode,
@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
-    if (window.matchMedia("(max-width: 1023px)").matches) {
+    if (window.matchMedia("(max-width: 1279px)").matches) {
         console.log( tabContent );
         for (let i = 0; i < tab.length; i++) {
             if (tab[i].classList.contains('active')) {
@@ -66,7 +66,7 @@ window.addEventListener('DOMContentLoaded', function () {
                         if (innerTabs.clientHeight < innerTabContent[i].clientHeight) {
                             bigTab.style.height = innerTabContent[i].clientHeight + 'px';
                         } else {
-                            if (window.matchMedia("(min-width: 1024px)").matches) {
+                            if (window.matchMedia("(min-width: 1280px)").matches) {
                             bigTab.style.height = innerTabs.clientHeight + 'px';
                             innerTabContent[i].style.height = bigTab.clientHeight + 'px';
                             }
