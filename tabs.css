@@ -143,6 +143,7 @@
 
 img:only-child{
     opacity: 1 !important;
+    position: static !important;
 }
 
 .def{
