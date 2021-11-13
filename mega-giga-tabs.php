@@ -7,9 +7,10 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Mega-giga-tabs
- * Description:       Making your tabs mega-giga
- * Version:           1.1.001a
+ * Description:       Making your tabs mega-giga!!! requires Smart Custom Fields 4.2.0
+ * Version:           1.1.001b
  * Requires PHP:      5.6
+ * Requires plugins:  Smart Custom Fields 4.2.0
  * Author:            Sashko
  */
 add_action('init', 'include_css_js');
