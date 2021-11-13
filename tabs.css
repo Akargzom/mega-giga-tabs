@@ -23,7 +23,7 @@
     margin-top: 8.5em;
 }
 
-.tab-v>.tab-cont-inner {
+.tab-v>.tab-cont {
     display: none;
     position: absolute;
     right: 0;
@@ -125,7 +125,7 @@
     transition: all 0.3s;
 }
 
-.tab-h>.tab-cont-inner {
+.tab-h>.tab-cont {
     width: 100%;
     display: none;
     position: absolute;
@@ -201,7 +201,7 @@ img:only-child{
         margin-bottom: 0% !important;
     }
 
-    .tab-cont-inner {
+    .tab-cont {
         width: 100% !important;
         display: none;
         position: static !important;
