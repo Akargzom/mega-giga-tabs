@@ -3,7 +3,7 @@ Contributors: Sashko Ilyashenko
 Tags: tabs
 Requires at least: 4.0
 Tested up to: 5.8.2
-Stable tag: 1.1.001c
+Stable tag: 1.1.001
 Requires Smart Custom Fields 4.2.0
 Requires PHP: 5.4
 License: 
