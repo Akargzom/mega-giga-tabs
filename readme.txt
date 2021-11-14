@@ -1,6 +1,5 @@
 === Giga-mega-tabs ===
 Contributors: Sashko Ilyashenko
-Donate link: https://tareq.co/donate/
 Tags: tabs
 Requires at least: 4.0
 Tested up to: 5.8.2
