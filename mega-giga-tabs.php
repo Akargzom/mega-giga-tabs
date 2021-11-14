@@ -8,10 +8,12 @@
  * @wordpress-plugin
  * Plugin Name:       Mega-giga-tabs
  * Description:       Making your tabs mega-giga!!! requires Smart Custom Fields 4.2.0
- * Version:           1.1.001c
+ * Version:           1.1.001
  * Requires PHP:      5.6
  * Requires plugins:  Smart Custom Fields 4.2.0
  * Author:            Sashko
+ * License: GPLv2
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 add_action('init', 'include_css_js');
 function include_css_js()
