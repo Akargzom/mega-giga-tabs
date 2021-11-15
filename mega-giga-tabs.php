@@ -8,12 +8,9 @@
  * @wordpress-plugin
  * Plugin Name:       Mega-giga-tabs
  * Description:       Making your tabs mega-giga!!! requires Smart Custom Fields 4.2.0
- * Version:           1.1.001
+ * Version:           1.1.002
  * Requires PHP:      5.6
- * Requires plugins:  Smart Custom Fields 4.2.0
  * Author:            Sashko
- * License: GPLv2
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 add_action('init', 'include_css_js');
 function include_css_js()
@@ -141,7 +138,7 @@ function add_sc()
         ])[0];
         $fields = get_post_custom($content->ID);
         if (isset($fields['tfs'][0]) && $fields['tfs'][0] == 'horizontal') {
-            $html = "<div class='tabs-block-h bigtab'><div class='tabs-h'>";
+            $html = "<div class='tabs-block-h bigtab'><div class='tabs-h tabs'>";
             foreach ($fields['th'] as $i => $th) {
                 $html .=  "<div class='tab-h";
                 if ($i == 0) $html .= ' active';
@@ -165,7 +162,7 @@ function add_sc()
             $html .= "</div></div>";
             return $html;
         } elseif (isset($fields['tfs'][0]) && $fields['tfs'][0] == 'vertical') {
-            $html = "<div class='tabs-block-v bigtab'><div class='tabs-v'>";
+            $html = "<div class='tabs-block-v bigtab'><div class='tabs-v  tabs'>";
             foreach ($fields['th'] as $i => $th) {
                 $html .=  "<div class='tab-v";
                 if ($i == 0) $html .= ' active';
