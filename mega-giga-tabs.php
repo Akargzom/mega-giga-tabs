@@ -8,7 +8,7 @@
  * @wordpress-plugin
  * Plugin Name:       Mega-giga-tabs
  * Description:       Making your tabs mega-giga!!! requires Smart Custom Fields 4.2.0
- * Version:           1.1.002
+ * Version:           1.2.001
  * Requires PHP:      5.6
  * Author:            Sashko
  */
@@ -18,6 +18,7 @@ function include_css_js()
     wp_enqueue_style('tabs', plugins_url('mega-giga-tabs/tabs.css'), []);
     wp_enqueue_script('tabs', plugins_url('mega-giga-tabs/tabs.js'), []);
 }
+
 add_action('init', 'tabs_type_reg');
 function tabs_type_reg()
 {
@@ -38,7 +39,7 @@ function tabs_type_reg()
             'menu_name'          => 'Tabs',
         ],
         'public'             => true,
-        'menu_position'      => 32,
+        'menu_position'      => 34,
         'hierarchical'       => false,
         'has_archive'        => false,
         'menu_icon'          => 'dashicons-editor-ol',
@@ -46,6 +47,7 @@ function tabs_type_reg()
         'supports'           => ['title', 'editor'],
     ]);
 }
+
 add_action('init', 'tabs_scf', 20);
 function tabs_scf()
 {
@@ -56,6 +58,17 @@ function tabs_scf()
             $settings = [];
             if ($type == PL_T1) {
                 $setting = SCF::add_setting('tabs_scf', 'Mega-giga-tabs!!!');
+                $setting->add_group('tabs autoscroll', false, [
+                [
+                    'type' => 'boolean',
+                    'name' => 'ascrl',
+                    'label' => 'Autoscroll',
+                    'true_label' => 'On',
+                    'false_label' => 'Off',
+                    'default' => 'Off',
+
+                ]
+            ]);
                 $setting->add_group('tabs form', false, [
                     [
                         'type' => 'select',
@@ -131,14 +144,20 @@ function add_sc()
         $a = shortcode_atts([
             'title' => '"' . $atts['title'] . '"',
         ], $atts);
+        $autoscroll = ( in_array('autoscroll', $atts) ) ?: false;
         $content = get_posts([
             'post_type' => PL_T1,
             'title' => $a['title'],
             'numberposts' => 1
         ])[0];
         $fields = get_post_custom($content->ID);
+        if($fields['ascrl'][0] == true){
+            $ascrl = ' auto';
+        }else{
+            $ascrl = '';
+        }
         if (isset($fields['tfs'][0]) && $fields['tfs'][0] == 'horizontal') {
-            $html = "<div class='tabs-block-h bigtab'><div class='tabs-h tabs'>";
+            $html = "<div class='tabs-block-h bigtab".$ascrl."'><div class='tabs-h tabs'>";
             foreach ($fields['th'] as $i => $th) {
                 $html .=  "<div class='tab-h";
                 if ($i == 0) $html .= ' active';
@@ -162,7 +181,7 @@ function add_sc()
             $html .= "</div></div>";
             return $html;
         } elseif (isset($fields['tfs'][0]) && $fields['tfs'][0] == 'vertical') {
-            $html = "<div class='tabs-block-v bigtab'><div class='tabs-v  tabs'>";
+            $html = "<div class='tabs-block-v bigtab".$ascrl."'><div class='tabs-v  tabs'>";
             foreach ($fields['th'] as $i => $th) {
                 $html .=  "<div class='tab-v";
                 if ($i == 0) $html .= ' active';
