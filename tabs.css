@@ -8,7 +8,7 @@
     }
 }
 
-.bigtab {
+.MGTZ_bigtab {
     margin-top: 5em;
     margin-bottom: 5em;
     color: black !important;
@@ -17,13 +17,13 @@
     position: relative;
 }
 
-.tabs-block-v {
+.MGTZ_tabs-block-v {
     width: 100%;
     height: 63.7%;
     margin-top: 8.5em;
 }
 
-.tab-v>.tab-cont {
+.MGTZ_tab-v>.MGTZ_tab-cont {
     display: none;
     position: absolute;
     right: 0;
@@ -37,7 +37,7 @@
     background: white;
 }
 
-.tab {
+.MGTZ_tab {
     transition: all 0.3s;
     cursor: pointer;
     box-shadow: 0px 5px 30px -8px rgba(0, 0, 0, 0.18);
@@ -46,86 +46,86 @@
     background: white;
 }
 
-.tab-v {
+.MGTZ_tab-v {
     margin-bottom: 2.2em;
 }
 
-.shadow {
+.MGTZ_shadow {
     display: flex;
     padding: 2.142em;
     display: flex;
 }
 
-.text p {
+.MGTZ_text p {
     font-size: 1em !important;
     line-height: 150% !important;
     margin: 0em !important;
 }
 
-.text h2 {
+.MGTZ_text h2 {
     margin-top: 0em !important;
     margin-bottom: 0.7em !important;
     font-size: 1.25em !important;
 }
 
-.text {
+.MGTZ_text {
     width: calc(100% - 5em);
     color: black !important;
     font-weight: 400 !important;
 }
 
-.shadow>.img {
+.MGTZ_shadow>.MGTZ_img {
     width: 3.5em;
     margin-right: 1.5em;
 }
 
-.img img {
+.MGTZ_img img {
     width: 100% !important;
 }
 
-.active {
+.MGTZ_active {
     box-shadow: 0px 5px 30px -8px rgba(0, 0, 0, 0.18), inset 5px 0px 0px #3DBEEE !important;
     transition: all 0.3s;
 }
 
-.active:hover {
+.MGTZ_active:hover {
     box-shadow: 0px 5px 30px -8px rgba(0, 0, 0, 0.18), inset 5px 0px 0px #3DBEEE !important;
 }
 
-.active h2 {
+.MGTZ_active h2 {
     color: black !important;
 }
 
-.active:hover .text>h2 {
+.MGTZ_active:hover .MGTZ_text>h2 {
     color: black !important;
 }
 
-.show{
+.MGTZ_show{
     display: block !important;
     animation: fadeIn .3s !important;
     opacity: 1;
 }
 
-.tab:hover {
+.MGTZ_tab:hover {
     box-shadow: 0px 8px 30px -5px rgba(0, 0, 0, 0.25);
     transition: all 0.3s;
 }
 
-.tabs-h {
+.MGTZ_tabs-h {
     display: flex;
     flex-wrap: wrap;
 }
 
-.tabs-h>.tab-h:not(:last-child){
+.MGTZ_tabs-h>.MGTZ_tab-h:not(:last-child){
     margin-right: 3% !important;
 }
 
-.tab:hover h2 {
+.MGTZ_tab:hover h2 {
     color: #3DBEEE !important;
     transition: all 0.3s;
 }
 
-.tab-h>.tab-cont {
+.MGTZ_tab-h>.MGTZ_tab-cont {
     width: 100%;
     display: none;
     position: absolute;
@@ -137,47 +137,47 @@
     color: black !important;
     background: white;
 }
-.img{
+.MGTZ_img{
     position: relative;
 }
 
-img:only-child{
+.MGTZ_bigtab img:only-child{
     opacity: 1 !important;
     position: static !important;
 }
 
-.def{
+.MGTZ_def{
     opacity: 1;
 }
 
-.active .def{
+.MGTZ_active .MGTZ_def{
     position: absolute;
     opacity: 0;
 }
 
-.act {
+.MGTZ_act {
     opacity: 1;
 }
 
-.def + .act{
+.MGTZ_def + .MGTZ_act{
     opacity: 0
 }
 
-.active .act {
+.MGTZ_active .MGTZ_act {
     opacity: 1;
 }
 
 @media(max-width: 1279px) {
 
-    .active {
+    .MGTZ_active {
         box-shadow: 0px 5px 30px -8px rgba(0, 0, 0, 0.18), inset 0px 10px 0px #3DBEEE !important;
     }
 
-    .active:hover {
+    .MGTZ_active:hover {
         box-shadow: 0px 5px 30px -8px rgba(0, 0, 0, 0.18), inset 0px 10px 0px #3DBEEE !important;
     }
 
-    .shadow{
+    .MGTZ_shadow{
         box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.25) !important;
         border-radius:0.6em;
         display: block;
@@ -186,22 +186,22 @@ img:only-child{
         z-index: 2;
     }
 
-    .text {
+    .MGTZ_text {
         width: 100%;
     }
 
-    .text>p{
+    .MGTZ_text>p{
         font-size: 1.15em;
         margin-top: .6em !important;
     }
 
-    .text>h2{
+    .MGTZ_text>h2{
         margin-top: .6em !important;
         font-size: 1.45em;
         margin-bottom: 0% !important;
     }
 
-    .tab-cont {
+    .MGTZ_tab-cont {
         width: 100% !important;
         display: none;
         position: static !important;
@@ -211,31 +211,31 @@ img:only-child{
         box-shadow: none !important;
     }
 
-    .tab {
+    .MGTZ_tab {
         margin-bottom: 1.45em !important;
         width: 100% !important;
     }
 
-    .tabs-h{
+    .MGTZ_tabs-h{
         display: block;
     }
 
-    .tabs-h>.tab-h:not(:first-child){
+    .MGTZ_tabs-h>.MGTZ_tab-h:not(:first-child){
         margin-left: 0% !important;
     }
 }
 
 @media(max-width: 1023px) {
 
-    .active {
+    .MGTZ_active {
         box-shadow: 0px 5px 30px -8px rgba(0, 0, 0, 0.18), inset 0px 10px 0px #3DBEEE !important;
     }
 
-    .active:hover {
+    .MGTZ_active:hover {
         box-shadow: 0px 5px 30px -8px rgba(0, 0, 0, 0.18), inset 0px 10px 0px #3DBEEE !important;
     }
 
-    .shadow{
+    .MGTZ_shadow{
         box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.25) !important;
         border-radius:0.6em;
         display: block;
@@ -244,22 +244,22 @@ img:only-child{
         z-index: 2;
     }
 
-    .text {
+    .MGTZ_text {
         width: 100%;
     }
 
-    .text>p{
+    .MGTZ_text>p{
         font-size: 1.15em;
         margin-top: .6em !important;
     }
 
-    .text>h2{
+    .MGTZ_text>h2{
         margin-top: .6em !important;
         font-size: 1.45em;
         margin-bottom: 0% !important;
     }
 
-    .tab-cont {
+    .MGTZ_tab-cont {
         width: 100% !important;
         display: none;
         position: static !important;
@@ -269,16 +269,16 @@ img:only-child{
         box-shadow: none !important;
     }
 
-    .tab {
+    .MGTZ_tab {
         margin-bottom: 1.45em !important;
         width: 100% !important;
     }
 
-    .tabs-h{
+    .MGTZ_tabs-h{
         display: block;
     }
 
-    .tabs-h>.tab-h:not(:first-child){
+    .MGTZ_tabs-h>.MGTZ_tab-h:not(:first-child){
         margin-left: 0% !important;
     }
 }
