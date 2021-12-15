@@ -18,7 +18,7 @@ add_action('wp_enqueue_scripts', function()
     wp_enqueue_script('tabs', plugins_url('tabs.js', __FILE__ ));
 });
 
-add_action('plugins_loaded', function()
+add_action('init', function()
 {
     define('MGTZ_PL_T1', 'tabs');
     register_post_type(MGTZ_PL_T1, [
@@ -46,7 +46,7 @@ add_action('plugins_loaded', function()
     ]);
 });
 
-add_action('smart-cf-register-fields', 'MGTZ_tabs_scf', 20);
+add_action('init', 'MGTZ_tabs_scf', 20);
 function MGTZ_tabs_scf()
 {
     if (class_exists('SCF')) {
