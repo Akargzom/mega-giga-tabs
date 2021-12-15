@@ -13,7 +13,7 @@ Makin ur tabzz giga-mega!!!
 
 == Description ==
 
-Its tabs plugin. U need only actibate it and activate csf, then just get ur giga-mega-tabs! And edit css if u need. :)
+Its tabs plugin. U need only activate it and activate SCF plugin, then just get ur giga-mega-tabs! And edit css if u need. :)
 
 == Installation ==
 
