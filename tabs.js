@@ -2,7 +2,6 @@ window.addEventListener('DOMContentLoaded', function () {
     'use strict';
     let tab = document.querySelectorAll('.MGTZ_tab'),
         tabContent = document.querySelectorAll('.MGTZ_tab-cont'),
-        allTabs = document.querySelectorAll('.MGTZ_bigtab'),
         allAct = document.querySelectorAll('.MGTZ_auto'),
         tabContentInner = document.querySelectorAll('.MGTZ_tab-cont-inner');
     if (window.matchMedia("(min-width: 1024px)").matches) {
