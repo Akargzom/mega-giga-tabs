@@ -13,10 +13,11 @@ Makin ur tabzz giga-mega!!!
 
 == Description ==
 
-Its tabs plugin. U need only activate it and activate SCF plugin, then just get ur giga-mega-tabs! And edit css if u need. :)
+Its tabs plugin that helps u make ur tabs giga-mega!
+U need only activate it and activate SCF plugin, edit ur tabs with custom fields(screens 1 and 2) then just get ur giga-mega-tabs with shortcode-icon in ur panel of post edit, dont forget the title of ur tab (screen 3) 
+And edit css if u need. :)
 
 == Installation ==
-
 
 
 == Frequently Asked Questions ==
