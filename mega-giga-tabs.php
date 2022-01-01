@@ -11,6 +11,8 @@
  * Version:           1.2.002
  * Requires PHP:      5.6
  * Author:            Sashko
+ * Text Domain: Mega-giga-tabs
+ * Domain Path: /languages
  */
 add_action('wp_enqueue_scripts', function()
 {
