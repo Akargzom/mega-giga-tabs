@@ -7,19 +7,77 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Mega-giga-tabs
- * Description:       Making your tabs mega-giga!!! requires Smart Custom Fields 4.2.0
- * Version:           1.2.002
+ * Description:       Making your tabs mega-giga!!! requires Smart Custom Fields plugin
+ * Version:           1.3
  * Requires PHP:      5.6
  * Author:            Sashko
  * Text Domain: Mega-giga-tabs
  * Domain Path: /languages
  */
+
+
 add_action('wp_enqueue_scripts', function()
 {
     wp_enqueue_style('tabs', plugins_url('tabs.css', __FILE__ ));
     wp_enqueue_script('tabs', plugins_url('tabs.js', __FILE__ ));
 });
+add_action( 'admin_menu', 'MGTZ_fields' );
 
+function MGTZ_fields() {
+   add_options_page( 'Tabs options', 'Tabs options', 'manage_options', 'MGTZ-options', 'tabs_options_callback' );
+}
+
+function tabs_options_callback() {
+?>
+<div class="MGTZ_wrap">
+   <h1><?=get_admin_page_title();?></h1>
+   <form action="options.php" method="POST">
+<?php
+settings_fields( 'tabs_group' );  
+do_settings_sections( 'tabs_page' ); 
+submit_button();
+?>
+   </form>
+</div>
+<?php
+}
+add_action( 'admin_init', 'MGTZ_settings' );
+function MGTZ_settings(){
+   register_setting( 'tabs_group', 'tabs_data', 'sanitize_callback' );
+   add_settings_section( 'tabs_section', '', '', 'tabs_page' );
+   $opts = [
+      'MGTZ_nmb_asps' => 'Autoscroll speed (seconds)',
+   ];
+   $vals = get_option( 'tabs_data' );
+   foreach ( $opts as $field => $name ){
+      add_settings_field( $field, $name, 'MGTZ_options', 'tabs_page', 'tabs_section', $args = [ 'field' => $field, 'vals' => $vals, 'name' => 'tabs_data' ] );
+   }
+}
+function MGTZ_options( $args ){
+   $field_name = $args['field'];
+   $vals = $args['vals'];
+   $name_option = $args['name'];
+   if ( strpos( $field_name, 'tx' ) !== false || strpos( $field_name, 'lb' ) !== false ) {
+   	if( isset( $vals[$field_name] ) )
+   		$value = $vals[$field_name];
+   	else $value = '';
+   	echo '<textarea name="' .$name_option. '[' .$field_name. ']" id="' .$field_name. '" rows="10" cols="50" class="large-text code">' .$value. '</textarea>';
+   }elseif ( strpos( $field_name, 'check' ) !== false ){
+		if( isset( $vals[$field_name] ) && $vals[$field_name] == 1 ) $cheked = ' checked';
+		else $cheked = '';
+		echo '<input name="' .$name_option. '[' .$field_name. ']" type="checkbox" id="' .$field_name. '" value="1"' .$cheked. '/>';
+	} elseif ( strpos( $field_name, 'nmb' ) !== false ) {
+		if( isset( $vals[$field_name] ) )
+   		$value = $vals[$field_name];
+   	else $value = '';
+		echo '<input name="' .$name_option. '[' .$field_name. ']" type="number" id="' .$field_name. '" value="' .$value. '" class="regular-text" />';
+	} else {
+		if( isset( $vals[$field_name] ) )
+   		$value = $vals[$field_name];
+   	else $value = '';
+		echo '<input name="' .$name_option. '[' .$field_name. ']" type="text" id="' .$field_name. '" value="' .$value. '" class="regular-text" />';
+	}
+}
 add_action('init', function()
 {
     define('MGTZ_PL_T1', 'tabs');
@@ -47,7 +105,6 @@ add_action('init', function()
         'supports'           => ['title', 'editor'],
     ]);
 });
-
 add_action('init', 'MGTZ_tabs_scf', 20);
 function MGTZ_tabs_scf()
 {
@@ -55,7 +112,6 @@ function MGTZ_tabs_scf()
         add_filter('smart-cf-register-fields', 'MGTZ_tabs_add_meta_fields', 10, 5);
         function MGTZ_tabs_add_meta_fields($settings, $type, $id, $meta_type, $types)
         {
-            $settings = [];
             if ($type == MGTZ_PL_T1) {
                 $setting = SCF::add_setting('tabs_scf', 'Mega-giga-tabs!!!');
                 $setting->add_group('tabs autoscroll', false, [
@@ -148,13 +204,17 @@ add_action('plugins_loaded', function(){
             'numberposts' => 1
         ])[0];
         $fields = get_post_custom($content->ID);
+        if (isset(get_option('tabs_data')['MGTZ_nmb_asps']) && !empty(get_option('tabs_data')['MGTZ_nmb_asps']))
+        $asps = get_option('tabs_data')['MGTZ_nmb_asps'] * 1000;
+        else   
+        $asps = 10000;
         if($fields['MGTZ_ascrl'][0] == true){
             $MGTZ_ascrl = ' MGTZ_auto';
         }else{
             $MGTZ_ascrl = '';
         }
         if (isset($fields['MGTZ_tfs'][0]) && $fields['MGTZ_tfs'][0] == 'horizontal') {
-            $html = "<div class='MGTZ_tabs-block-h MGTZ_bigtab".$MGTZ_ascrl."'><div class='MGTZ_tabs-h MGTZ_tabs'>";
+            $html = "<div class='MGTZ_tabs-block-h MGTZ_bigtab".$MGTZ_ascrl."' data = '".$asps."' ><div class='MGTZ_tabs-h MGTZ_tabs'>";
             foreach ($fields['MGTZ_th'] as $i => $th) {
                 $html .=  "<div class='MGTZ_tab-h MGTZ_tab";
                 if ($i == 0) $html .= ' MGTZ_active';                    
@@ -178,7 +238,7 @@ add_action('plugins_loaded', function(){
             $html .= "</div></div>";
             return $html;
         } elseif (isset($fields['MGTZ_tfs'][0]) && $fields['MGTZ_tfs'][0] == 'vertical') {
-            $html = "<div class='MGTZ_tabs-block-v MGTZ_bigtab".$MGTZ_ascrl."'><div class='MGTZ_tabs-v  MGTZ_tabs'>";
+            $html = "<div class='MGTZ_tabs-block-v MGTZ_bigtab".$MGTZ_ascrl."' data = '".$asps."'><div class='MGTZ_tabs-v  MGTZ_tabs'>";
             foreach ($fields['MGTZ_th'] as $i => $th) {
                 $html .=  "<div class='MGTZ_tab-v MGTZ_tab";
                 if ($i == 0) $html .= ' MGTZ_active';
