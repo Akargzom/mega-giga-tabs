@@ -1,4 +1,4 @@
-=== Giga-mega-tabs ===
+=== Mega-giga-tabs ===
 Contributors: Sashko Ilyashenko
 Tags: tabs
 Requires at least: 4.0
@@ -9,7 +9,7 @@ Requires PHP: 5.6
 License: 
 License URI: 
 
-Makin ur tabzz giga-mega!!!
+Makin ur tabzz mega-giga!!!
 
 == Description ==
 
