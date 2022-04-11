@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', function () {
     let tab = document.querySelectorAll('.MGTZ_tab'),
         tabContent = document.querySelectorAll('.MGTZ_tab-cont'),
         allAct = document.querySelectorAll('.MGTZ_auto'),
+        asps = allAct[0] ? allAct[0].getAttribute('data') : 0,
         tabContentInner = document.querySelectorAll('.MGTZ_tab-cont-inner');
     if (window.matchMedia("(min-width: 1024px)").matches) {
         for (let i = 0; i < tabContent.length; i++) {
@@ -70,7 +71,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 }
             }
         }
-    }, 10000);
+    }, asps);
     for (let i = 0; i < tab.length; i++) {
         tab[i].addEventListener('click', function () {
             let bigTab = this.closest('.MGTZ_bigtab'),
@@ -99,7 +100,7 @@ window.addEventListener('DOMContentLoaded', function () {
                             }
                         }
                     }
-                }, 10000);
+                }, asps);
             }
             for (let i = 0; i < innerTab.length; i++) {
                 if (innerTab[i] == this) {
