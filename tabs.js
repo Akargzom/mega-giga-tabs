@@ -110,7 +110,7 @@ window.addEventListener('DOMContentLoaded', function () {
                         bigTab.style.height = innerTab[i].clientHeight + 35 + innerTabContent[i].clientHeight + 'px';
                     } else {
                         if (innerTabs.clientHeight < innerTabContent[i].clientHeight) {
-                            bigTab.style.height = innerTabContent[i].clientHeight + 'px';
+                            bigTab.style.height = innerTabContent[i].clientHeight + 60 + 'px';
                         } else {
                             if (window.matchMedia("(min-width: 1280px)").matches) {
                                 bigTab.style.height = innerTabs.clientHeight + 'px';
